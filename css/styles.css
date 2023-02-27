@@ -32,6 +32,15 @@ nav a {
     border:1px solid #e4e4e4;
 }
 
+.contacts {
+    position: absolute;
+    top:0;
+}
+
+.contacts table td:last-child {
+    padding-left: 10px;
+}
+
 .txt-center {
     text-align: center;
 }
@@ -85,4 +94,8 @@ ul ul {
     .grid > div {
         margin-bottom: 20px;
     }
+}
+
+input[type="text"]{
+    display: none;
 }

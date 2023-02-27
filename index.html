@@ -14,15 +14,44 @@
     
     <meta property="og:title" content="Dellean Santos | Software Engineer Resume" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://dellean.com/" />
+    <meta property="og:url" content="https://tawsbob.github.io/" />
     <meta property="og:image" content="https://avatars.githubusercontent.com/u/8184351?v=4" />
     <meta property="og:description" content="Software Engineer with 12+ years in tech. Worked with the top 10 BRL startups. Proficient in React, Node.js, AWS, and CI/CD. In love with teaching and learning." />
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <!-- <meta name="theme-color" content="#f00"> -->
+
+
+
+
 
 </head>
 <body>
     <main class="wrapper">
         <section>
             <header>
+                <div class="contacts">
+                    <p>
+                        <strong>Get in touch</strong> <br>
+                        <table>
+                            <tr>
+                                <td>Phone: </td>
+                                <td><a href="#" class="contact" data-content="KzU1MjE5OTUxMDE5OTA=">Click here</a</td>
+                            </tr>
+                            <tr>
+                                <td>Email: </td>
+                                <td><a href="#" class="contact" data-content="ZGVsbGVhbi5zYW50b3NAZ21haWwuY29t">Click here</a></td>
+                            </tr>
+                            <tr>
+                                <td>Whatsapp: </td>
+                                <td><a href="#" class="wp" data-content="aHR0cHM6Ly9hcGkud2hhdHNhcHAuY29tL3NlbmQ/cGhvbmU9KzU1MjE5OTUxMDE5OTAmdGV4dD1IaSUyQyUyMGxldCdzJTIwY2hhdCE=">Click here</a></td>
+                            </tr>
+                        </table>
+                    </p>
+                </div>
                 <nav class="txt-right">
                     <a href="#" title="Print">
                         <img src="/icons/print.svg" width="45px" alt="Print Icon">
@@ -119,22 +148,88 @@
             <h1>Last Experiences</h1>
             <div class="card">
                 <p>
-                    <h3>Quinto Andar</h3>
-                    <strong>Link: </strong><a href="https://www.quintoandar.com.br/" target="_blank">Quinto andar</a> a Brazilian Real State Startup <br>
+                    <h3>Quinto Andar 09/2021 - 04/2022</h3>
+                    QuintoAndar is a Brazilian technology company (Real State) that operates an online platform for long-term residential rentals in Brazil. <br><br>
+                    <strong>Link: </strong><a href="https://www.quintoandar.com.br/" target="_blank">Quinto andar</a><br>
                     <strong>Role:</strong> Senior Software Engineer (Frontend) <br>
                     <strong>Description:</strong> Work building an in-house product to grow the customer base through organic SEO. <br>
                     <strong>Stack: </strong> Nodejs, Reactjs, Next, Rest, Micro-services
                 </p>
             </div>
+            <div class="card">
+                <p>
+                    <h3>This Smart Solutions  10/2020 - 09/2021</h3>
+                    This is my software development company  <br><br>
+                    <strong>Link: </strong> New Site in progress<br>
+                    <strong>Role:</strong> CEO and Full Stack Developer <br>
+                    <strong>Description:</strong> By enabling low complexity projects, building teams (hiring freelancers) and coding as well<br>
+                    <strong>Stack: </strong> Nodejs, Reactjs, Next, Rest, Vercel, AWS, Heroku, Docker, Git, Github, GitLab, BitBucket, CI/CD - Jenkins, Drone and Github Actions, Postgres, MongoDB, Xata
+                </p>
+            </div>
+            <div class="card">
+                <p>
+                    <h3>Descomplica 03/2020 - 10/2020</h3>
+                    Descomplica is a Brazilian edtech (education technology) company that offers online courses and educational content to students preparing for college entrance exams, as well as K-12 students seeking supplementary learning materials.  <br><br>
+                    <strong>Link: </strong><a href="https://descomplica.com.br/home/b/" target="_blank">Descomplica</a><br>
+                    <strong>Role:</strong> Senior Software Engineer (Frontend) <br>
+                    <strong>Description:</strong> Delivering sales pages (Landing) for courses and integrate with marketing tools<br>
+                    <strong>Stack: </strong> Nodejs, Reactjs, Next, Rest
+                </p>
+            </div>
+            <div class="card">
+                <p>
+                    <h3>Winnin 03/2016 - 30/2020</h3>
+                    A Brazilian Startup that use data and AI to driven and create high performance videos and content<br><br>
+                    <strong>Link: </strong><a href="https://winnin.com/" target="_blank">Winnin</a><br>
+                    <strong>Role:</strong> Senior Software Engineer (Frontend) <br>
+                    <strong>Description:</strong> Frontend application development in react and integration with APIS and services<br>
+                    <strong>Stack: </strong> Nodejs, Reactjs, GraphQl, Serveless
+                </p>
+            </div>
         </section>
+
+        <input type="text" value="" id="clip">
         
     </main>
     
     <script type="text/javascript">
+        
+        console.log('Hello Neo, matrix has you...')
+        const input = document.getElementById("clip");
+        
         const print = document.querySelector('a[title="Print"]');
         print.addEventListener('click', () => {
             window.print();
         });
+
+        document.querySelector('a.wp').addEventListener('click', (e) => {
+            e.preventDefault();
+            window.open(atob(e.target.dataset.content), '_blank');
+        })
+
+        document.querySelectorAll('a.contact').forEach((link)=>{
+            
+            const data = link.dataset.content;
+
+            link.addEventListener('click', (e) => {
+
+                e.preventDefault();
+                const decoded_data = atob(data);
+
+                link.innerHTML  = 'Copied to clipboard';
+                input.value     = decoded_data;
+
+                input.select();
+                input.setSelectionRange(0, 99999);
+
+
+                navigator.clipboard.writeText(input.value);
+
+            });
+        })
+        
+
+
     </script>
 
 </body>
