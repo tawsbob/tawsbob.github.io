@@ -14,7 +14,9 @@ nav {
     gap:10px;
     align-items: center;
     justify-content: center;
+    margin:25px;
 }
+
 nav a {
     text-decoration: none;
     border:1px solid #e4e4e4;
@@ -23,15 +25,21 @@ nav a {
     line-height: 0;
 }
 
+.no-v-mg {
+    margin:0;
+}
 .wrapper {
     background-color: #fff;
-    max-width: 900px;
+    max-width: 700px;
     margin:20px auto;
     position: relative;
     padding: 20px;
     border:1px solid #e4e4e4;
 }
 
+.contacts {
+    margin:20px 0;
+}
 .contacts table td:last-child {
     padding-left: 10px;
 }
@@ -44,11 +52,28 @@ nav a {
     text-align: right;
 }
 
+.txt-soft {
+    color: #666;
+}
+.txt-dark {
+    color: #333;
+}
+
+.title {
+    text-align: center;
+    margin:10px 0 30px;
+}
+
+.title h1,
+.title p {
+    margin:0;
+}
+
 .profile-pic {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    margin: 30px auto;
+    margin: 30px auto 20px;
     border: 2px solid #e4e4e4;
     overflow: hidden;
 }
@@ -57,6 +82,8 @@ nav a {
     border:2px solid #e4e4e4;
     border-radius: 4px;
     padding: 20px;
+    margin-bottom: 20px;
+    
 }
 
 .grid > div h3 {
@@ -83,18 +110,17 @@ table {
 
 @media only screen and (min-width: 768px) {
     
-    .grid {
+    /*.grid {
         display: grid;
         gap: 20px;
         grid-template-columns: 1fr 1fr;
-    }
+    }*/
 }
 
 @media only screen and (max-width: 768px) {
-    .grid > div {
-        margin-bottom: 20px;
-    }
+    
 }
+
 
 input[type="text"]{
     display: none;
