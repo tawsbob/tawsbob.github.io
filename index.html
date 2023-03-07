@@ -27,10 +27,11 @@
 
 </head>
 <body>
+    
     <main class="wrapper">
         <section>
             <header>
-
+                <canvas id="ancap-flag" width="60" height="30" title="Be free"></canvas>
                 <div class="title">
                     <h1>Dellean Santos</h1>
                     <p class="txt-dark"><strong>Senior Software Engineer</strong></p>
@@ -39,6 +40,7 @@
 
                 <div class="profile-pic">
                     <img  src="https://avatars.githubusercontent.com/u/8184351?v=4"  alt="Dellean Santos Profile Picture" />
+                    <canvas id="canv" width="200" height="200"></canvas>
                 </div>
 
                 <div class="txt-center">
@@ -95,7 +97,7 @@
         
         
         <section>
-            <h1 class="txt-center">I’ve worked with</h1>
+            <h1 class="txt-center" width="80" height="40">I’ve worked with</h1>
             <div class="grid">
                 <div>
                     <h3>Frontend</h3>
@@ -216,7 +218,21 @@
     </main>
     
     <script type="text/javascript">
-        
+
+        const canvas = document.getElementById('ancap-flag');
+        const context = canvas.getContext('2d');
+
+        function drawTriangle(context, point1, point2, point3, filled, color) {
+            context.fillStyle= color;
+
+            context.beginPath();
+            context.moveTo(point1.x, point1.y);
+            context.lineTo(point2.x, point2.y);
+            context.lineTo(point3.x, point3.y);
+            context.closePath();
+            filled ? context.fill() : context.stroke();
+        }
+
         console.log('Hello Neo, matrix has you...')
 
         const age = document.querySelector('p.age');
@@ -269,6 +285,91 @@
         const today = new Date();
         
         age.innerHTML = age.innerText.replace('{how_old}',  getYearsDiff(bd, today))
+
+        canvas_width = canvas.clientWidth;
+        canvas_height = canvas.clientHeight;
+        
+        drawTriangle(
+            context,
+            {x: 0, y: 0},
+            {x: canvas_width, y: 0},
+            {x: 0, y: canvas_height},
+            true,
+            "#fdfd03"
+        )
+
+        drawTriangle(
+            context,
+            {x: canvas_width, y: canvas_width},
+            {x: canvas_width, y: 0},
+            {x: 0, y: canvas_height},
+            true,
+            "#000"
+        )
+
+
+        
+
+
+        const c = document.getElementById('canv');
+        const $ = c.getContext('2d');
+        const w = c.width = 200
+        const h = c.height = 200
+
+        let animationId;
+F = 0;
+u = 0;
+function D() {
+  F++;
+  $.fillStyle = 'hsla(239, 95%, 5%, .2)';
+  $.fillRect(0, 0, w, h);
+  for (i = 50; i--;) {
+    t = F / 20 + i *.120;
+    $.fillStyle = col(u,1);
+    E(50+i*Math.cos(t),40%i*Math.sin(t));
+    E(40+i*Math.cos(t),20%i*Math.sin(t));
+    E(20+i*Math.sin(t),80%i*Math.cos(t));
+    E(10+i*Math.sin(t),70%i*Math.cos(t));
+  }
+  animationId = window.requestAnimationFrame(D);
+};
+function E(a, b) {
+  G(a, b);
+  G(-a, b);
+  G(-a, -b);
+  G(a, -b);
+  G(b, -a);
+  G(-b, -a);
+  G(-b, a);
+  G(b, a);
+}
+function col(a, b) {
+  return "hsla(" + (Math.sin(t) + 2) * 150 + ",80%,60%," + i + ")";
+}
+function G(a, b) {
+  $.beginPath();
+  $.arc(w / 2 + a, h / 2 + b, 1, 0, 2 * Math.PI, false);
+  $.closePath();
+  $.fill()
+}
+/*
+window.addEventListener('resize',function(){
+  c.width = w = window.innerWidth;
+  c.height = h =  window.innerHeight;
+}, false);*/
+
+//D();
+
+canvas.addEventListener('click',()=>{
+    if(animationId){
+        window.cancelAnimationFrame(animationId);
+        animationId = null;
+        $.clearRect(0, 0, c.width, c.height);
+    }else{
+        D();
+    }
+})
+    
 
     </script>
 
