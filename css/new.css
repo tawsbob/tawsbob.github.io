@@ -120,11 +120,16 @@ main {
     display: none;
 }
 
-@media (min-width: 768px) {
+
+@media only screen and (min-width: 768px) {
     main {
         display: grid;
         grid-template-columns: 0.3fr 1fr;
         gap: 20px;
+    }
+
+    .about {
+        line-height: 1.8;
     }
 
     .grid {
@@ -150,3 +155,36 @@ main {
     
 }
 
+@media print {
+    html,body {
+        background-color: #fff;
+    }
+    .print-margin {
+        margin-top: 150px;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .grid > div {
+        border:1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 20px;
+    }
+
+    .grid > div h3 {
+        margin-top: 0;
+    }
+
+    .card {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+    }
+
+    #social {
+        display: none;
+    }
+}
