@@ -1,0 +1,152 @@
+:root {
+    --border-color:#e4e4e4;
+}
+html,body {
+    margin:0;
+    padding:0;
+    font-family: 'Hind Madurai', sans-serif;
+    background-color: #f5f5f5;
+}
+
+a {
+    cursor: pointer;
+}
+img {
+    max-width: 100%;
+}
+
+li {
+ line-height: 2;
+}
+.mg {
+    margin: 40px 0;
+}
+
+#social {
+ margin: 20px auto;
+ text-align: center;
+}
+
+#social a {
+    display: inline-block;
+    text-decoration: none;
+    border:1px solid #e4e4e4;
+    padding: 5px;
+    border-radius: 4px;
+    line-height: 0;
+    background-color: #fff;
+    margin: 0 2px;
+}
+
+.txt-soft {
+    color: #666;
+}
+.txt-dark {
+    color: #333;
+}
+
+.title {
+    text-align: center;
+    margin:10px 0 30px;
+}
+
+.profile-pic {
+    display: block;
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    border: 5px solid #f5f5f5;
+    overflow: hidden;
+    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+}
+.txt-center {
+    text-align: center;
+}
+.wrapper {
+    position: relative;
+    max-width: 350px;
+    margin:0 auto;
+    padding: 0 20px;
+}
+
+.card {
+    position: relative;
+    padding: 20px 40px;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+main {
+    padding: 20px;
+}
+
+.sidebar > div {
+    position: relative;
+    margin-top: 45px;
+    padding-top: 100px;
+}
+
+
+.sidebar header {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.sidebar .profile-pic {
+    margin:0 auto;
+}
+
+.sidebar .card {
+    padding-top: 40px;
+}
+
+.title h1 {
+    margin-bottom: 0;
+}
+
+.title p {
+    margin: 0;
+}
+
+.contacts {
+    margin:20px 0;
+}
+
+#clip {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    main {
+        display: grid;
+        grid-template-columns: 0.3fr 1fr;
+        gap: 20px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .grid > div {
+        border:1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 20px;
+    }
+
+    .grid > div h3 {
+        margin-top: 0;
+    }
+    .sidebar > div {
+        position: sticky;
+        top: 10px;
+    }
+
+    
+}
+
