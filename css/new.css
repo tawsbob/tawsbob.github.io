@@ -160,19 +160,31 @@ main {
         background-color: #fff;
     }
     .print-margin {
-        margin-top: 150px;
+        margin-top: 100px;
     }
-    .grid {
+    /* .grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
-    }
+    } */
 
     .grid > div {
+        margin-bottom: 40px;
+    }
+
+    .grid ul li {
+        display: inline-block;
+    }
+
+    .grid ul li::after {
+        content: ",";
+    }
+
+    /* .grid > div {
         border:1px solid var(--border-color);
         border-radius: 8px;
         padding: 20px;
-    }
+    } */
 
     .grid > div h3 {
         margin-top: 0;
