@@ -160,7 +160,10 @@ main {
         background-color: #fff;
     }
     .print-margin {
-        margin-top: 100px;
+        margin-top: 50px;
+    }
+    .sidebar > div {
+        margin-top: 0;
     }
     /* .grid {
         display: grid;
@@ -168,6 +171,21 @@ main {
         gap: 20px;
     } */
 
+    .grid a {
+        color: #46e783;
+    }
+
+    .grid h3, .grid h4 {
+        margin-bottom: 0;
+    }
+    .grid ul {
+        margin-top: 0;
+        padding: 0;
+    }
+
+    .grid ul ul {
+        margin-left: 20px;
+    }
     .grid > div {
         margin-bottom: 40px;
     }
