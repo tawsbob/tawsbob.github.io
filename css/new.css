@@ -182,20 +182,22 @@ main {
         margin-top: 0;
         padding: 0;
     }
-
-    .grid ul ul {
-        margin-left: 20px;
-    }
+    
     .grid > div {
-        margin-bottom: 40px;
+        margin-bottom: 2    0px;
     }
 
-    .grid ul li {
+    .grid ul li,
+    .grid ul ul {
         display: inline-block;
     }
 
     .grid ul li::after {
         content: ",";
+    }
+
+    .grid ul li:last-child::after {
+        content: "";
     }
 
     /* .grid > div {
