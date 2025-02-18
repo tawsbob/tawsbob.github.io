@@ -159,20 +159,20 @@ main {
     html,body {
         background-color: #fff;
     }
+
+    a {
+        color: #000
+    }
+
     .print-margin {
         margin-top: 50px;
     }
     .sidebar > div {
         margin-top: 0;
     }
-    /* .grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    } */
 
     .grid a {
-        color: #46e783;
+        color: #000;
     }
 
     .grid h3, .grid h4 {
