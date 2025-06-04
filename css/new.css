@@ -585,7 +585,7 @@ section {
 
 .timeline {
     position: relative;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -649,9 +649,7 @@ section {
 }
 
 .experience-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
+    
     margin-bottom: var(--space-md);
 }
 
