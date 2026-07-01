@@ -1,21 +1,311 @@
 :root {
-    --body-bg-color:#f4f1ea;
+    /* Colors (unchanged palette) */
+    --body-bg-color: #f4f1ea;
     --font-sans: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
     --font-serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
 
     --heading-color: #17233a;
     --normal-text-color: rgba(23, 35, 58, 0.9);
+
+    /* Tints derived from the ink color (same hue, no new colors) */
+    --ink-soft: rgba(23, 35, 58, 0.72);
+    --ink-muted: rgba(23, 35, 58, 0.55);
+    --ink-faint: rgba(23, 35, 58, 0.16);
+    --ink-hairline: rgba(23, 35, 58, 0.1);
+
+    /* Layout */
+    --content-max-width: 46rem;
+    --page-padding: 2.5rem;
+
+    /* Vertical rhythm */
+    --space-2xs: 0.35rem;
+    --space-xs: 0.6rem;
+    --space-sm: 1rem;
+    --space-md: 1.75rem;
+    --space-lg: 3rem;
+    --space-xl: 4.5rem;
+
+    /* Typography */
+    --heading-letter-spacing: 0.14em;
+    --body-line-height: 1.95;
+
+    /* Craft details */
+    --hairline: 1px solid var(--ink-faint);
+    --accent-rule: 2px solid var(--heading-color);
 }
 
-html,body {
-    margin:0;
-    padding:1em;
-    font-family: sans-serif;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
     background-color: var(--body-bg-color);
+    color: var(--normal-text-color);
     font-family: var(--font-serif);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-kerning: normal;
+    font-feature-settings: 'liga' 1, 'kern' 1, 'onum' 1;
+}
+
+body {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: var(--space-xl) var(--page-padding);
+    line-height: var(--body-line-height);
+}
+
+/* ---------- Typography ---------- */
+
+h1,
+h2,
+h3 {
+    color: var(--heading-color);
+    font-family: var(--font-serif);
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 p {
     font-size: 1rem;
-    line-height: 1.95;
+    line-height: var(--body-line-height);
+    margin: 0 0 var(--space-sm);
+    hyphens: auto;
+}
+
+a {
+    color: var(--heading-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink-faint);
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+a:hover {
+    border-bottom-color: var(--heading-color);
+}
+
+strong {
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+/* ---------- Header ---------- */
+
+header {
+    text-align: center;
+    padding-bottom: var(--space-md);
+}
+
+header h1 {
+    margin: 0 0 var(--space-2xs);
+    font-size: 2.9rem;
+    letter-spacing: 0.02em;
+}
+
+header p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+header p:first-of-type strong {
+    display: inline-block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: var(--heading-letter-spacing);
+    text-transform: uppercase;
+    color: var(--heading-color);
+}
+
+header p:nth-of-type(2),
+header p:nth-of-type(3) {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    font-style: italic;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin: var(--space-sm) 0 0;
+    padding: 0;
+}
+
+header ul li {
+    margin: 0;
+    padding: 0;
+}
+
+header ul li a {
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    border-bottom: none;
+    color: var(--ink-soft);
+}
+
+header ul li a:hover {
+    color: var(--heading-color);
+}
+
+/* ---------- Ornamental divider ---------- */
+
+hr {
+    border: none;
+    height: 1px;
+    margin: var(--space-lg) auto;
+    max-width: 8rem;
+    background: var(--ink-faint);
+    position: relative;
+    overflow: visible;
+}
+
+hr::after {
+    content: '\00A7';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 0.6rem;
+    background-color: var(--body-bg-color);
+    color: var(--ink-muted);
+    font-size: 0.9rem;
+    line-height: 1;
+}
+
+.link {
+    text-decoration: underline;
+}
+/* ---------- Sections ---------- */
+
+section {
+    margin-bottom: var(--space-md);
+}
+
+section h2 {
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: var(--heading-letter-spacing);
+    text-transform: uppercase;
+    color: var(--heading-color);
+    margin: 0 0 var(--space-sm);
+    padding-bottom: var(--space-2xs);
+    border-bottom: var(--hairline);
+}
+
+/* ---------- Lists ---------- */
+
+section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+section ul li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: var(--space-xs);
+    line-height: 1.7;
+}
+
+section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0.15rem;
+    top: 0.7em;
+    width: 5px;
+    height: 5px;
+    background-color: var(--ink-muted);
+    transform: rotate(45deg);
+}
+
+/* ---------- Experience ---------- */
+
+article {
+    position: relative;
+    padding: 0 0 var(--space-md) var(--space-md);
+    border-left: var(--hairline);
+}
+
+article:last-child {
+    padding-bottom: 0;
+}
+
+article::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 0.55em;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: var(--body-bg-color);
+    border: var(--accent-rule);
+}
+
+article h3 {
+    font-size: 1.2rem;
+    margin: 0 0 var(--space-2xs);
+}
+
+article h3 a {
+    border-bottom: none;
+}
+
+article h3 a:hover {
+    border-bottom: 1px solid var(--heading-color);
+}
+
+article p:first-of-type {
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: var(--space-xs);
+}
+
+article p:first-of-type strong {
+    font-weight: 600;
+    color: var(--ink-soft);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+    :root {
+        --page-padding: 1.5rem;
+        --space-xl: 2.75rem;
+    }
+
+    header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* ---------- Print ---------- */
+
+@media print {
+    :root {
+        --body-bg-color: #ffffff;
+    }
+
+    body {
+        padding: 0;
+        max-width: none;
+    }
+
+    a {
+        border-bottom: none;
+    }
+
+    article {
+        break-inside: avoid;
+    }
 }
