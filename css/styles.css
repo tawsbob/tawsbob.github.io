@@ -276,6 +276,14 @@ article p:first-of-type strong {
     color: var(--ink-soft);
 }
 
+article ul {
+    margin: var(--space-xs) 0 0;
+}
+
+article ul li {
+    font-size: 0.95rem;
+}
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 640px) {
